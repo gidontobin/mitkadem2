@@ -1,10 +1,17 @@
-function CurrentChat() {
-    return (
-      <div className="CurrentChat">
-      
+import ChatHeader from "./ChatHeader";
+import ChatHistory from "./ChatHistory";
+import InputMessage from "./InputMessage";
+
+function CurrentChat(props) {
+  return (
+    <div className="CurrentChat">
+      <div class="chat">
+        <ChatHeader name="Yossi Cohen" />
+        <ChatHistory />
+        <InputMessage />
       </div>
-    );
-  }
-  
-  export default CurrentChat;
-  
+    </div>
+  );
+}
+
+export default CurrentChat;
