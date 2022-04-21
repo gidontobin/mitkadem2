@@ -59,10 +59,9 @@ function InputMessage(props) {
     return (
         <div>
             <ChatHistory message={messages} />
-    
             <div class="chat-message clearfix">
                 <div class="input-group mb-0">
-                <a href="javascript:void(0);" class="btn btn-outline-secondary"><i class="fa fa-paperclip"></i></a>    
+                <button class="btn btn-outline-secondary"><i class="fa fa-paperclip"></i></button>    
                 <input id="myInput" type="text" class="form-control" placeholder="New message here..." onInput={getInput}></input>
                     <div class="input-group-prepend">
                         <button type="button" class="btn btn-success" onClick={setting}>send</button>
