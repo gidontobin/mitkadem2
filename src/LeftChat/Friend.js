@@ -2,11 +2,11 @@
 
 function Friend(props) {
   return (
-    <div class="about">
+    <div>
       <div class="name">
-        <i class="fa fa-circle online"></i>
+      <img src={props.img} width="50" height="50"></img>
         {props.name}
-        <span class="status"> {props.min} mins ago </span>
+        <span class="status"> {props.min}</span>
       </div>
       <div class="lastMessege">{props.lastM}</div>
 

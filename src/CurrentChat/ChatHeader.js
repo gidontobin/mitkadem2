@@ -6,7 +6,7 @@ function ChatHeader(props) {
                     <div class="about"></div>
                     <div class="col-lg-6">
                         <div class="name">
-                            <i class="fa fa-circle online"></i>
+                        <img src = {props.img}></img>
                             {props.name}
                         </div>
                     </div>

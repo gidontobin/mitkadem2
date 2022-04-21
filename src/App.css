@@ -43,21 +43,23 @@ body{
 }
 .card {
   background: #fff;
-  transition: .5s;
-  border: 0;
+  transition: .2s;
   margin-bottom: 30px;
   border-radius: .55rem;
   position: relative;
   width: 100%;
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 10%);
+  
+  
 }
 .chat-app .people-list {
-  width: 280px;
+  background: #fff;
+  width: 360px;
   position: absolute;
-  left: 0;
-  top: 0;
+  left: 10;
+  top: 10;
   padding: 20px;
-  z-index: 7
+  z-index: 7;
 }
 
 .lastMessege{
@@ -66,21 +68,35 @@ body{
 
 
 .chat-app .chat {
-  margin-left: 280px;
-  border-left: 1px solid #eaeaea
+  margin-left: 360px;
+  border-left: 1px solid #eaeaea;
+  background: #fff;
+  
 }
 
 .people-list {
   -moz-transition: .5s;
   -o-transition: .5s;
   -webkit-transition: .5s;
-  transition: .5s
+  transition: .5s;
+  max-height: 600px;
+  min-height: 600px;
+  
+}
+
+.list2{
+  overflow-y: scroll;
+  max-height: 500px;
+  min-height: 500px;
+  
 }
 
 .people-list .chat-list li {
   padding: 10px 15px;
   list-style: none;
-  border-radius: 3px
+  border-radius: 100px;
+  
+  
 }
 
 .people-list .chat-list li:hover {
@@ -96,6 +112,10 @@ body{
   font-size: 20px
 }
 
+.no-chat{
+  color: #c91010;
+}
+
 .people-list .chat-list img {
   width: 45px;
   border-radius: 50%
@@ -106,27 +126,37 @@ body{
   border-radius: 50%
 }
 
-.people-list .about {
-  float: left;
-  padding-left: 8px
+.people-list .status {
+  float: right;
+  padding-right: 50px;
+  color: #999;
+  font-size: 13px;
 }
 
-.people-list .status {
-  padding: 30px;
-  color: #999;
-  font-size: 13px
-  
+.chat-header2 .btn{
+  float: right;
+}
+
+.chat-header2{
+  min-height: 60px;
+  background: #fff;
+  border-bottom: 2px solid #f4f7f6;
+  font-size: 20px;
+  text-align: center;
 }
 
 .chat .chat-header {
   padding: 15px 20px;
-  border-bottom: 2px solid #f4f7f6
+  border-bottom: 2px solid #f4f7f6;
+  max-height: 70px;
+  min-height: 70px;
+  
 }
 
 .chat .chat-header img {
   float: left;
-  border-radius: 40px;
-  width: 40px
+  border-radius: 50%;
+  width: 45px;
 }
 
 .chat .chat-header .chat-about {
@@ -136,7 +166,12 @@ body{
 
 .chat .chat-history {
   padding: 20px;
-  border-bottom: 2px solid #fff
+  border-bottom: 2px solid #fff;
+  overflow-y: scroll;
+  max-height: 450px;
+  min-height: 450px;
+  display: flex;
+  flex-direction: column-reverse;
 }
 
 .chat .chat-history ul {
@@ -252,7 +287,8 @@ body{
   font-size: 0;
   content: " ";
   clear: both;
-  height: 0
+  height: 0;
+  
 }
 
 @media only screen and (max-width: 767px) {
@@ -300,3 +336,43 @@ body{
       overflow-x: auto
   }
 }
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
