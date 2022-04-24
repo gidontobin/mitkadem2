@@ -15,8 +15,6 @@ function Login() {
 
     function checkValidity() {
 
-        // git 
-
         //console.log(usernameBox.current.value)
         //console.log(passwordBox.current.value)
 
