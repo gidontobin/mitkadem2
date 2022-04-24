@@ -19,6 +19,7 @@ function LeftChat(props) {
   <Friend name="Fred" img="/logo192.png" set = {setP} />,
   <Friend name="George" img="/logo192.png" set = {setP} />,
   <Friend name="Harry" img="/logo192.png" set = {setP} />,
+  <Friend name="Yohay" img="/logo192.png" set = {setP} />
   ]
 
 

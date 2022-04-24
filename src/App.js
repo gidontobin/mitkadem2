@@ -1,26 +1,28 @@
-import './App.css';
-import LeftChat from './LeftChat/LeftChat';
-import CurrentChat from './CurrentChat/CurrentChat';
-import React, { useState } from 'react';
-
+//import './App.css';
+import Login from './Login';
+import Register from './Register';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import MainChat from './MainChat';
 
 function App() {
-    return (
-        <div>
-        
-            <div class="container">
-                <div class="row clearfix">
-                    <div class="col-lg-12">
-                        <div class="chat-app ">
-                            <LeftChat me="Gidon Tobin" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-        
-        </div>
 
-    );
+  return (
+    <div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Login />}></Route>
+          <Route path="/Register" element={<Register />}></Route>
+          <Route path="/Chat" element={<MainChat />}></Route>
+        </Routes>
+      </BrowserRouter>
+    </div>
+  );
 }
 
 export default App;
+
+/*
+
+
+<Background />
+*/
