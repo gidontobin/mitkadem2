@@ -20,7 +20,7 @@ function Register() {
     }
 
     function checkValidity() {
-        
+
         //console.log(usernameBox.current.value)
         //console.log(passwordBox.current.value)
         //console.log(confirmPassBox.current.value)
@@ -103,6 +103,10 @@ function Register() {
                         <div class="mb-3">
                             <label for="InputNickname" class="form-label">Nickname</label>
                             <input ref={nicknameBox} type="text" class="form-control" id="nicknameID" required></input>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="myPicture"></label>
+                            <input type="file" class="form-control-file" id="pictureID"></input>
                         </div>
                         <span className="d-flex justify-content-center">
                             <a href="/" class="link-primary" onClickCapture={old_user}>already registered? click here!</a>
