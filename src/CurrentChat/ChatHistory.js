@@ -18,7 +18,6 @@ function ChatHistory(props) {
     return (
         <div class="chat-history">
             <ul class="m-b-0">
-            
             {props.message}
             </ul>
         </div>

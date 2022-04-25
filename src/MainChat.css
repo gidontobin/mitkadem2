@@ -125,6 +125,11 @@ body{
     width: 45px;
     border-radius: 50%
   }
+
+  .people-list .chat-list video {
+    width: 200px; 
+    height: 100px;
+  }
   
   .people-list img {
     float: left;
@@ -199,6 +204,16 @@ body{
   .chat .chat-history .message-data img {
     border-radius: 40px;
     width: 40px
+  }
+
+  .chat .chat-history .my-message img {
+    width: 100px
+  }
+
+  .chat .chat-history .my-message video {
+    width: 200px; 
+    height: 100px;
+    
   }
   
   .chat .chat-history .message-data-time {

@@ -8,8 +8,9 @@ function LeftHeader(props) {
     setOpen("1");
   }
   
-  const close = () => {
+  const close = (input) => {
     setOpen("0");
+    props.input(input);
   }
   
   return (
@@ -17,7 +18,7 @@ function LeftHeader(props) {
       <img src="/IMG_0062.jpg" width="50" height="50"></img>
       {props.me}
       <button class="btn btn-outline-secondary" onClick={open}><i class="fa fa-user-plus"></i></button>    
-      <Modal open={getOpen} onClose = {close}/>
+      <Modal open={getOpen} onClose = {close} type = "text" text = "Add new contact"/>
     </div>
 
 
