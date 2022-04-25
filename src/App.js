@@ -12,7 +12,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Login />}></Route>
           <Route path="/Register" element={<Register />}></Route>
-          <Route path="/Chat" element={<MainChat />}></Route>
+          <Route path="/Chat" element={<MainChat name= "Yossi Hagever" />}></Route>
         </Routes>
       </BrowserRouter>
     </div>
