@@ -7,7 +7,6 @@ import LeftHeader from "./LeftHeader";
 
 function LeftChat(props) {
 
-
   const [prop, setP] = useState( )
   const [contacts, setContacts] = useState
   ([
