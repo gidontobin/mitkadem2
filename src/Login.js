@@ -1,6 +1,6 @@
 import { useRef } from "react";
 
-function Login() {
+function Login(props) {
 
     const usernameBox = useRef(null);
     const passwordBox = useRef(null);
@@ -47,6 +47,8 @@ function Login() {
         }
 
         console.log('Passed all tests!')
+        //console.log(usrname.value)
+        props.name(usrname.value)    
         window.location.href = '/Chat'
     }
 
