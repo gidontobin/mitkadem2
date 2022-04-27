@@ -70,12 +70,8 @@ function Login(props) {
         }
 
         console.log('Passed all tests!')
-        var path = '/Chat/'+usrname.value;
+        var path = '/Chat/' + usrname.value;
         window.location.href = path;
-    }
-
-    const newUser = function () {
-        console.log("Hello new user!")
     }
 
     return (
@@ -92,7 +88,7 @@ function Login(props) {
                             <input ref={passwordBox} type="password" class="form-control" id="loginPassword"></input>
                         </div>
                         <span className="d-flex justify-content-center">
-                            <a href="/Register" class="link-primary" onClickCapture={newUser}>not registered yet? click here!</a>
+                            <a href="/Register" class="link-primary">not registered yet? click here!</a>
                         </span>
                         <button type="submit" id="hiddenBtn" hidden></button>
                     </form>

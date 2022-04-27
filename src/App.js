@@ -29,7 +29,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Login usersList={users} />}></Route>
-          <Route path="/Register" element={<Register usersList={users} />}></Route>
+          <Route path="/Register" element={<Register usersList={users} paths={itemsList} />}></Route>
           {itemsList}
         </Routes>
       </BrowserRouter>

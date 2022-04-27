@@ -1,4 +1,6 @@
 import { useRef } from "react";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import MainChat from './MainChat';
 
 function Register(props) {
 
@@ -7,10 +9,6 @@ function Register(props) {
     const confirmPassBox = useRef(null);
     const nicknameBox = useRef(null);
 
-    const old_user = function () {
-        console.log("hi old user")
-    }
-
     function containsAnyLetter(str) {
         return /[a-zA-Z]/.test(str);
     }
@@ -18,6 +16,14 @@ function Register(props) {
     function containsAnyNumber(str) {
         return /[0-9]/.test(str);
     }
+    function sleep(milliseconds) {
+        var start = new Date().getTime();
+        for (var i = 0; i < 1e7; i++) {
+          if ((new Date().getTime() - start) > milliseconds){
+            break;
+          }
+        }
+      }
 
     function checkValidity() {
 
@@ -76,7 +82,6 @@ function Register(props) {
         // vaidate confirm password
         if (password1.value === password2.value) {
             password2.setCustomValidity('')
-            console.log('match')
         } else {
             password2.setCustomValidity('Passwords must match')
             console.log('not match')
@@ -96,7 +101,24 @@ function Register(props) {
         }
 
         console.log('Passed all tests!')
-        window.location.href = '/Chat'
+
+        // add user to users list
+        let user = {id: usrname.value, password: password1.value}
+        props.usersList.push(user)
+        let index = props.usersList.indexOf(user)
+
+        // check
+        console.log("index is: " + index)
+        console.log("elemnt in index is: " + props.usersList[index].id)
+
+        // add path to users paths
+        var p = "/Chat/" + usrname.value;
+        props.paths.push()
+        props.paths.push(<Route path={p} element={<MainChat userInfo={props.usersList[index].id} />}></Route>)
+        
+        //setTimeout(checkValidity, 300);
+        sleep(1000);
+        window.location.href = p;
     }
 
 
@@ -126,7 +148,7 @@ function Register(props) {
                             <input type="file" class="form-control-file" id="pictureID"></input>
                         </div>
                         <span className="d-flex justify-content-center">
-                            <a href="/" class="link-primary" onClickCapture={old_user}>already registered? click here!</a>
+                            <a href="/" class="link-primary">already registered? click here!</a>
                         </span>
                         <button type="submit" id="hiddenBtn" hidden></button>
                     </form>
