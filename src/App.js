@@ -9,9 +9,12 @@ import React, { useState } from 'react';
 
 function App() {
   var listNames = ["aaron","birt","coby"]
+  
   var itemList =[]
+  
   for (let i=0;i<listNames.length;i++){
       var p = "/Chat/"+listNames[i];
+      
       itemList.push(<Route path={p} element={<MainChat name={listNames[i]} />}></Route>)
   }
     
