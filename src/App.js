@@ -9,7 +9,7 @@ import React, { useState } from 'react';
 
 function App() {
 
-  const users = [
+  var users = [
     { id: 'kermit', password: "kermit1" },
     { id: 'miss_piggy', password: "misspiggy1" },
     { id: 'fozzie_bear', password: "fozziebear1" },
@@ -29,7 +29,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Login usersList={users} />}></Route>
-          <Route path="/Register" element={<Register usersList={users} />}></Route>
+          <Route path="/Register" element={<Register usersList={users} paths={itemsList} />}></Route>
           {itemsList}
         </Routes>
       </BrowserRouter>
