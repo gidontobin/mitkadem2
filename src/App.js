@@ -8,29 +8,35 @@ import React, { useState } from 'react';
 
 
 function App() {
-  var listNames = ["aaron","birt","coby"]
-  
-  var itemList =[]
-  
-  for (let i=0;i<listNames.length;i++){
-      var p = "/Chat/"+listNames[i];
-      
-      itemList.push(<Route path={p} element={<MainChat name={listNames[i]} />}></Route>)
+
+  const users = [
+    { id: 'kermit', password: "kermit1" },
+    { id: 'miss_piggy', password: "misspiggy1" },
+    { id: 'fozzie_bear', password: "fozziebear1" },
+    { id: 'gonzo', password: "gonzo1" },
+    { id: 'scooter', password: "scooter1" }
+  ];
+
+  var itemsList = []
+  for (let i = 0; i < users.length; i++) {
+    var p = "/Chat/" + users[i].id;
+    itemsList.push(<Route path={p} element={<MainChat userInfo={users[i]} />}></Route>)
   }
-    
-    return (
-      <div>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Login names={listNames} />}></Route>
-            <Route path="/Register" element={<Register />}></Route>
-            {itemList}
-          </Routes>
-        </BrowserRouter>
-      </div>
-    );
-  }
-  
+
+
+  return (
+    <div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Login usersList={users} />}></Route>
+          <Route path="/Register" element={<Register usersList={users} />}></Route>
+          {itemsList}
+        </Routes>
+      </BrowserRouter>
+    </div>
+  );
+}
+
 export default App;
 
 /*

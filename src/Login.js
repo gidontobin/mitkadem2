@@ -5,14 +5,6 @@ function Login(props) {
     const usernameBox = useRef(null);
     const passwordBox = useRef(null);
 
-    function containsAnyLetter(str) {
-        return /[a-zA-Z]/.test(str);
-    }
-
-    function containsAnyNumber(str) {
-        return /[0-9]/.test(str);
-    }
-
     function checkValidity() {
 
         //console.log(usernameBox.current.value)
@@ -35,9 +27,29 @@ function Login(props) {
             usrname.setCustomValidity('')
         }
 
-        // vaidate password
-        if (password.value.length < 4 || !containsAnyLetter(password.value) || !containsAnyNumber(password.value)) {
-            password.setCustomValidity('Must contain at least one number and one letter, and in length of 4 or more characters')
+        // check if username exists
+        let isExists = 0
+        let passwordFlag = 0
+        props.usersList.map((user) => {
+            if (user.id == usrname.value) {
+                isExists = 1
+                if (user.password == password.value)
+                    passwordFlag = 1
+            }
+        })
+        if (!isExists) {
+            usrname.setCustomValidity("There's no such username")
+            console.log('not exists')
+            btn.click()
+            return;
+        }
+        else {
+            usrname.setCustomValidity('')
+        }
+
+        // vaidate password existance
+        if (password.value.length < 1) {
+            password.setCustomValidity("This is a requierd field")
             console.log('length')
             btn.click()
             return;
@@ -46,13 +58,20 @@ function Login(props) {
             password.setCustomValidity('')
         }
 
-        console.log('Passed all tests!')
-        
-        if(props.names.includes(usrname.value)){    
-            var p = '/Chat/'+usrname.value;
-            window.location.href = p;
+        // check if password match username
+        if (!passwordFlag) {
+            password.setCustomValidity("password don't match username")
+            console.log('not match')
+            btn.click()
+            return;
         }
-        
+        else {
+            password.setCustomValidity('')
+        }
+
+        console.log('Passed all tests!')
+        var path = '/Chat/'+usrname.value;
+        window.location.href = path;
     }
 
     const newUser = function () {

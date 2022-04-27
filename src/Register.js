@@ -1,6 +1,6 @@
 import { useRef } from "react";
 
-function Register() {
+function Register(props) {
 
     const usernameBox = useRef(null);
     const passwordBox = useRef(null);
@@ -34,10 +34,27 @@ function Register() {
         const nickname = document.getElementById('nicknameID')
         const btn = document.getElementById('hiddenBtn')
 
-        // vaidate username
+        // vaidate username existance
         if (usrname.value.length < 1) {
             usrname.setCustomValidity("This is a requierd field")
             console.log('length')
+            btn.click()
+            return;
+        }
+        else {
+            usrname.setCustomValidity('')
+        }
+
+        // check if username is unique
+        let isExists = 0
+        props.usersList.map((user) => {
+            if (user.id == usrname.value) {
+                isExists = 1
+            }
+        })
+        if (isExists) {
+            usrname.setCustomValidity("Username is already taken")
+            console.log('already exists')
             btn.click()
             return;
         }
