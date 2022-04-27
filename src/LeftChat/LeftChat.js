@@ -21,7 +21,7 @@ function LeftChat(props) {
 
   const input = (inp) => {
     if(inp)
-    setContacts(arr => [...arr, (<Friend name= {inp} img="/logo192.png" set = {setP} />)]);
+    setContacts(arr => [...arr, (<Friend name= {inp} img="/I1.jpg" set = {setP} />)]);
     
   }
 
