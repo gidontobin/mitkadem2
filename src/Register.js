@@ -107,18 +107,24 @@ function Register(props) {
         props.usersList.push(user)
         let index = props.usersList.indexOf(user)
 
-        // check
+        // check adding
         console.log("index is: " + index)
         console.log("elemnt in index is: " + props.usersList[index].id)
+        console.log("password in index is: " + props.usersList[index].password)
 
         // add path to users paths
-        var p = "/Chat/" + usrname.value;
-        props.paths.push()
-        props.paths.push(<Route path={p} element={<MainChat userInfo={props.usersList[index].id} />}></Route>)
-        
+        var p = "/Chat/" + usrname.value
+        props.paths.push(<Route path={p} element={<MainChat userInfo={props.usersList[index]} />}></Route>)
+
+        //props.paths.push(p)
+        let index1 = props.paths.indexOf(p)
+        console.log("path in itemslist is: " + p)
         //setTimeout(checkValidity, 300);
-        sleep(1000);
-        window.location.href = p;
+        //sleep(10000);
+        //for(var i=0; i < 10000000000 ; i++);
+        //console.log('fffffffffffff!')
+
+        window.location.href = p
     }
 
 
