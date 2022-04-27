@@ -12,7 +12,7 @@ function MainChat(props) {
                 <div class="row clearfix">
                     <div class="col-lg-12">
                         <div class="chat-app">    
-                        <LeftChat me={props.name} />
+                        <LeftChat me={props.userInfo.id} />
                         </div>
                     </div>
                 </div>
