@@ -5,33 +5,29 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import MainChat from './MainChat';
 import React, { useState } from 'react';
 
+
+
 function App() {
-
-  map
-
-  const [usrname, setusrname] = useState('randomali')
-
-  const sync getUsrname = (myName) => {
-    setusrname(myName);
-    console.log('argument is:')
-    console.log(myName)
-    console.log('value in usrname is:')
-    console.log(usrname);
+  var listNames = ["aaron","birt","coby"]
+  var itemList =[]
+  for (let i=0;i<listNames.length;i++){
+      var p = "/Chat/"+listNames[i];
+      itemList.push(<Route path={p} element={<MainChat name={listNames[i]} />}></Route>)
   }
-
-  return (
-    <div>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Login name={getUsrname} map={} />}></Route>
-          <Route path="/Register" element={<Register />}></Route>
-          <Route path="/Chat" element={<MainChat name={usrname} />}></Route>
-        </Routes>
-      </BrowserRouter>
-    </div>
-  );
-}
-
+    
+    return (
+      <div>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Login names={listNames} />}></Route>
+            <Route path="/Register" element={<Register />}></Route>
+            {itemList}
+          </Routes>
+        </BrowserRouter>
+      </div>
+    );
+  }
+  
 export default App;
 
 /*

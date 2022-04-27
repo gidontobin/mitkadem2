@@ -47,9 +47,12 @@ function Login(props) {
         }
 
         console.log('Passed all tests!')
-        //console.log(usrname.value)
-        props.name(usrname.value)    
-        window.location.href = '/Chat'
+        if(props.names.includes(usrname.value)){    
+            console.log(usrname.value)
+            var p = '/Chat/'+usrname.value;
+            window.location.href = p;
+        }
+        
     }
 
     const newUser = function () {

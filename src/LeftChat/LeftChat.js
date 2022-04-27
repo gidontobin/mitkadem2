@@ -5,16 +5,18 @@ import CurrentChat from "../CurrentChat/CurrentChat";
 import LeftHeader from "./LeftHeader";
 
 
+
+
 function LeftChat(props) {
 
   const [prop, setP] = useState( )
   const [contacts, setContacts] = useState
   ([
-      <Friend name="Aaron" img="/logo192.png" set = {setP} />,
-      <Friend name="Birt" img="/logo192.png" set = {setP} />,
-      <Friend name="Coby" img="/logo192.png" set = {setP} />,
-      <Friend name="Derek" img="/logo192.png" set = {setP} />,
-      <Friend name="Eran" img="/logo192.png" set = {setP} />
+      <Friend name="Aaron" img="/I1.jpg" set = {setP} />,
+      <Friend name="Birt" img="/I1.jpg" set = {setP} />,
+      <Friend name="Coby" img="/I1.jpg" set = {setP} />,
+      <Friend name="Derek" img="/I1.jpg" set = {setP} />,
+      <Friend name="Eran" img="/I1.jpg" set = {setP} />
       ])
 
   const input = (inp) => {
