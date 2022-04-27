@@ -3,12 +3,11 @@ import MyMessege from './MyMessege';
 import ChatHistory from './ChatHistory';
 import Modal from '../LeftChat/Modal';
 
-
 function InputMessage(props) {
+    
     var val = 0;
     var time = (new Date).toLocaleTimeString();
     const [messagesA, setA] = useState(new Map())
-
 
     function setting() {
         if (val != 0) {
@@ -23,18 +22,18 @@ function InputMessage(props) {
         }
         document.getElementById('myInput').value = '';
         if (typeof val != 'string'){
-            props.getLast(<div><i class="fa fa-picture-o"></i> picture</div>, time);
-            /*
-            if (val.nodeName == "IMG"){
-            props.getLast(<div><i class="fa fa-picture-o"></i> picture</div>, time);
+            
+            
+            if (val.type == "img"){
+            props.getLast(<div><i class="fa fa-picture-o"></i> Image</div>, time);
             }
-            else if (val.nodeName == "video"){
-                props.getLast(<div><i class="fa fa-picture-o"></i> video</div>, time);
+            else if (val.type == "video"){
+                props.getLast(<div><i class="fa fa-video-camera"></i> Video</div>, time);
             }
-            else if (val.nodeName == "audio"){
-                props.getLast(<div><i class="fa fa-picture-o"></i> audio</div>, time);
+            else if (val.type == "audio"){
+                props.getLast(<div><i class="fa fa-microphone"></i> Audio</div>, time);
             }
-            */
+            
 
         }
         else {
@@ -53,7 +52,7 @@ function InputMessage(props) {
         setOpenP("0");
         val = input.split("fakepath").pop();
         val = "."+val;
-        val = <img src = {val} ></img>
+        val = <img id="img" src = {val} ></img>
         setting();
         
     }
@@ -66,7 +65,7 @@ function InputMessage(props) {
         setOpenV("0");
         val = input.split("fakepath").pop();
         val = "."+val;
-        val = <video autoPlay>
+        val = <video autoPlay id="vid">
         <source src={val} type="video/mp4"></source>
         </video>
         setting();
@@ -83,16 +82,17 @@ function InputMessage(props) {
     const closeM = (input) => {
         setOpenM("0");
         val = input
-        val = <audio src={val} controls />
+        val = <audio id="rec" src={val} controls />
         setting();
     }
       
     return (
         <div>
-            <ChatHistory message={messagesA.get(props.name)} />
-            <div class="chat-message clearfix">
-                <div class="input-group mb-0">
-                    
+            
+        <ChatHistory message={messagesA.get(props.name)} />
+            
+        <div class="chat-message clearfix">
+                <div class="input-group mb-0">    
                 <button class="btn btn-outline-secondary" onClick={openP}><i class="fa fa-picture-o"></i></button>
                     <Modal open={getOpenP} onClose={closeP} type="file" text="Select Image" />
                     <button class="btn btn-outline-secondary" onClick={openV}><i class="fa fa-video-camera"></i></button>
@@ -100,10 +100,10 @@ function InputMessage(props) {
                     <button class="btn btn-outline-secondary" onClick={openM}><i class="fa fa-microphone"></i></button>
                     <Modal open={getOpenM} onClose={closeM} type="file" text="Record" />
 
-                    <button class="btn btn-outline-secondary" data-tooltip="hello"><i class="fa fa-paperclip"></i></button>
+                    {/*<button class="btn btn-outline-secondary" data-tooltip="hello"><i class="fa fa-paperclip"></i></button>*/}
                     <input id="myInput" type="text" class="form-control" placeholder="New message here..." onInput={getInput}></input>
                     <div class="input-group-prepend">
-                        <button type="button" class="btn btn-success" onClick={setting}><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+                       <button type="button" class="btn btn-success" onClick={setting}><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
                     </div>
                 </div>
             </div>

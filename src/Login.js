@@ -5,14 +5,6 @@ function Login(props) {
     const usernameBox = useRef(null);
     const passwordBox = useRef(null);
 
-    function containsAnyLetter(str) {
-        return /[a-zA-Z]/.test(str);
-    }
-
-    function containsAnyNumber(str) {
-        return /[0-9]/.test(str);
-    }
-
     function checkValidity() {
 
         //console.log(usernameBox.current.value)
@@ -78,9 +70,8 @@ function Login(props) {
         }
 
         console.log('Passed all tests!')
-        //console.log(usrname.value)
-        props.name(usrname.value)
-        window.location.href = '/Chat'
+        var path = '/Chat/'+usrname.value;
+        window.location.href = path;
     }
 
     const newUser = function () {

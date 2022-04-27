@@ -5,13 +5,14 @@ import React, { useState } from 'react';
 
 
 function MainChat(props) {
+    
     return (
         <div>
             <div class="container">
                 <div class="row clearfix">
                     <div class="col-lg-12">
-                        <div class="chat-app">
-                            <LeftChat me={props.name} />
+                        <div class="chat-app">    
+                        <LeftChat me={props.name} />
                         </div>
                     </div>
                 </div>
