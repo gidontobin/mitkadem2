@@ -1,5 +1,6 @@
 import { useRef } from "react";
-import Users from "./Users";
+import users from "./Users";
+
 function Login(props) {
 
     const usernameBox = useRef(null);
@@ -27,6 +28,8 @@ function Login(props) {
             usrname.setCustomValidity('')
         }
 
+        /*
+        old version:
         // check if username exists in the system
         let isExists = 0
         let passwordFlag = 0
@@ -35,6 +38,30 @@ function Login(props) {
                 isExists = 1
                 if (user.password == password.value)
                     passwordFlag = 1
+            }
+        })
+        if (!isExists) {
+            usrname.setCustomValidity("There's no such username")
+            console.log('not exists')
+            btn.click()
+            return;
+        }
+        else {
+            usrname.setCustomValidity('')
+        }
+        */
+
+        // check if username exists in the system
+        let currentUser
+        let isExists = 0
+        let passwordFlag = 0
+        users.map((user) => {
+            if (user.id == usrname.value) {
+                isExists = 1
+                if (user.password == password.value){
+                    passwordFlag = 1
+                    currentUser = user
+                }
             }
         })
         if (!isExists) {
@@ -70,8 +97,12 @@ function Login(props) {
         }
 
         console.log('Passed all tests!')
-        var path = '/Chat/' + usrname.value;
-        window.location.href = path;
+        //var path = '/Chat/' + usrname.value;
+        //window.location.href = path;
+
+        let index = users.indexOf(currentUser)
+        users[index].isOnline = true
+        window.location.href = "/Chat";
     }
 
     return (

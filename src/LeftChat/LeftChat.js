@@ -28,7 +28,7 @@ function LeftChat(props) {
   return (
     <div>
       <div id="plist" class="people-list">
-        <LeftHeader me = {props.me} input={input} />
+        <LeftHeader me = {props.me} input={input} img={props.img} />
         <div class="list2">
           <ul class="list-unstyled chat-list mt-2 mb-0">
             {contacts}

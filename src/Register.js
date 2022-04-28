@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import MainChat from './MainChat';
+import users from "./Users";
 
 function Register(props) {
 
@@ -16,6 +17,8 @@ function Register(props) {
     function containsAnyNumber(str) {
         return /[0-9]/.test(str);
     }
+
+    /*
     function sleep(milliseconds) {
         var start = new Date().getTime();
         for (var i = 0; i < 1e7; i++) {
@@ -24,6 +27,7 @@ function Register(props) {
           }
         }
       }
+*/
 
     function checkValidity() {
 
@@ -53,7 +57,7 @@ function Register(props) {
 
         // check if username is unique
         let isExists = 0
-        props.usersList.map((user) => {
+        users.map((user) => {
             if (user.id == usrname.value) {
                 isExists = 1
             }
@@ -102,12 +106,17 @@ function Register(props) {
 
         console.log('Passed all tests!')
 
+        /*
         // add user to users list
         let user = {id: usrname.value, password: password1.value}
         props.usersList.push(user)
-        //props.usersList.push({id: usrname.value, password: password1.value})
         let index = props.usersList.indexOf(user)
+        */
 
+        users.push({id: usrname.value, password: password1.value})
+    
+        
+        /*
         // check adding
         console.log("index is: " + index)
         console.log("elemnt in index is: " + props.usersList[index].id)
@@ -117,15 +126,10 @@ function Register(props) {
         var p = "/Chat/" + usrname.value
         props.paths.push(<Route path={p} element={<MainChat userInfo={props.usersList[index]} />}></Route>)
 
-        //props.paths.push(p)
-        let index1 = props.paths.indexOf(p)
-        console.log("path in itemslist is: " + props.paths[index1])
-        //setTimeout(checkValidity, 300);
-        //sleep(10000);
-        //for(var i=0; i < 10000000000 ; i++);
-        //console.log('fffffffffffff!')
-
         //window.location.href = p
+        */
+
+        window.location.href = "/Chat"
     }
 
 

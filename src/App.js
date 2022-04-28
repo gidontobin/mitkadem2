@@ -9,6 +9,7 @@ import React, { useState } from 'react';
 
 function App() {
 
+  /*
   var users = [
     { id: 'kermit', password: "kermit1" },
     { id: 'miss_piggy', password: "misspiggy1" },
@@ -22,15 +23,16 @@ function App() {
     var p = "/Chat/" + users[i].id;
     itemsList.push(<Route path={p} element={<MainChat userInfo={users[i]} />}></Route>)
   }
-
+*/
+var name = "kermit"
 
   return (
     <div>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Login usersList={users} />}></Route>
-          <Route path="/Register" element={<Register usersList={users} paths={itemsList} />}></Route>
-          {itemsList}
+          <Route path="/" element={<Login usersList={name} />}></Route>
+          <Route path="/Register" element={<Register usersList={name} paths={name} />}></Route>
+          <Route path="/Chat" element={<MainChat />}></Route>
         </Routes>
       </BrowserRouter>
     </div>
