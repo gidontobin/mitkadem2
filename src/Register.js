@@ -20,23 +20,7 @@ function Register(props) {
         return /[0-9]/.test(str);
     }
 
-    /*
-    function sleep(milliseconds) {
-        var start = new Date().getTime();
-        for (var i = 0; i < 1e7; i++) {
-          if ((new Date().getTime() - start) > milliseconds){
-            break;
-          }
-        }
-      }
-*/
-
     function checkValidity() {
-
-        //console.log(usernameBox.current.value)
-        //console.log(passwordBox.current.value)
-        //console.log(confirmPassBox.current.value)
-        //console.log(nicknameBox.current.value)
 
         console.log('inside checkValidity!')
 
@@ -108,35 +92,11 @@ function Register(props) {
 
         console.log('Passed all tests!')
 
-        /*
-        // add user to users list
-        let user = {id: usrname.value, password: password1.value}
-        props.usersList.push(user)
-        let index = props.usersList.indexOf(user)
-        */
-
         users.push({id: usrname.value, password: password1.value})
     
-        
-        /*
-        // check adding
-        console.log("index is: " + index)
-        console.log("elemnt in index is: " + props.usersList[index].id)
-        console.log("password in index is: " + props.usersList[index].password)
-
-        // add path to users paths
-        var p = "/Chat/" + usrname.value
-        props.paths.push(<Route path={p} element={<MainChat userInfo={props.usersList[index]} />}></Route>)
-
-        //window.location.href = p
-        */
-
-        //window.location.href = "/Chat"
-    
         navigate("/chat?username="+usrname.value+"?"+valUrl);
-
-        //window.location.href = "/Chat"
     }
+
     const imgGet = (e) => {
         e.preventDefault();
         valUrl = URL.createObjectURL(e.target.files[0])

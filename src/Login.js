@@ -10,9 +10,6 @@ function Login(props) {
 
     function checkValidity() {
 
-        //console.log(usernameBox.current.value)
-        //console.log(passwordBox.current.value)
-
         console.log('inside checkValidity!')
 
         const usrname = document.getElementById('usernameID')
@@ -29,29 +26,6 @@ function Login(props) {
         else {
             usrname.setCustomValidity('')
         }
-
-        /*
-        old version:
-        // check if username exists in the system
-        let isExists = 0
-        let passwordFlag = 0
-        props.usersList.map((user) => {
-            if (user.id == usrname.value) {
-                isExists = 1
-                if (user.password == password.value)
-                    passwordFlag = 1
-            }
-        })
-        if (!isExists) {
-            usrname.setCustomValidity("There's no such username")
-            console.log('not exists')
-            btn.click()
-            return;
-        }
-        else {
-            usrname.setCustomValidity('')
-        }
-        */
 
         // check if username exists in the system
         let currentUser
@@ -99,13 +73,8 @@ function Login(props) {
         }
 
         console.log('Passed all tests!')
-        //var path = '/Chat/' + usrname.value;
-        //window.location.href = "/Chat";
         navigate("/chat?username="+usrname.value+"?"+currentUser.img);
 
-        //let index = users.indexOf(currentUser)
-        //users[index].isOnline = true
-        //navigate("/chat?username="+usrname.value+"?"+users[index].get("img"));
     }
 
     return (
