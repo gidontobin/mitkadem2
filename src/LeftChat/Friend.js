@@ -3,20 +3,20 @@ import CurrentChat from "../CurrentChat/CurrentChat";
 import MyMessege from '../CurrentChat/MyMessege';
 
 function Friend(props) {
-  const [last, setLast] = useState('');
-   
-
+  var isM = []
+  if (props.name=="Aaron")
+  isM = ["by","12:05:16"]
+  
+  
+  const [last, setLast] = useState(isM);
   const whatWasLast = (childdata, time) => {
     if(childdata!="0"){
-      
         setLast([childdata, time]);
       
     }
   }
-
-  
-
-
+  var lastMessage = last[0] 
+  var lastTime= last[1]
 
 
   return (

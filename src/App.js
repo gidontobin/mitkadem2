@@ -8,29 +8,23 @@ import React, { useState } from 'react';
 
 
 function App() {
-
+  /*
   var users = [
-    { id: 'kermit', password: "kermit1" },
-    { id: 'miss_piggy', password: "misspiggy1" },
-    { id: 'fozzie_bear', password: "fozziebear1" },
-    { id: 'gonzo', password: "gonzo1" },
-    { id: 'scooter', password: "scooter1" }
+    { id: 'kermit', password: "kermit1", img: "/kermit.png"  },
+    { id: 'miss_piggy', password: "misspiggy1", img: "/kermit.png" },
+    { id: 'fozzie_bear', password: "fozziebear1", img: "/kermit.png" },
+    { id: 'gonzo', password: "gonzo1", img: "/kermit.png" },
+    { id: 'scooter', password: "scooter1", img: "/kermit.png" }
   ];
-
-  var itemsList = []
-  for (let i = 0; i < users.length; i++) {
-    var p = "/Chat/" + users[i].id;
-    itemsList.push(<Route path={p} element={<MainChat userInfo={users[i]} />}></Route>)
-  }
-
+  */
 
   return (
     <div>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Login usersList={users} />}></Route>
-          <Route path="/Register" element={<Register usersList={users} paths={itemsList} />}></Route>
-          {itemsList}
+          <Route path="/" element={<Login  />}></Route>
+          <Route path="/Register" element={<Register   />}></Route>
+          <Route path="/chat" element={<MainChat />}></Route>
         </Routes>
       </BrowserRouter>
     </div>

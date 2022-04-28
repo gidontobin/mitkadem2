@@ -29,49 +29,41 @@ export default function Modal(props) {
     
     if (props.open == "0") return null
     var val;
+    var photo;
 
     function getInput() {
         val = document.querySelector('input').value;
     }
+    
+    const imgGet = (e) => {
+        e.preventDefault();
+        photo = URL.createObjectURL(e.target.files[0])
+    }
 
     function addContact() {
-        if (props.text == "Record") {
-            props.onClose(audioURL);
-        }
-        else{
-            props.onClose(val);
-        }
+            props.onClose(val,photo);
     }
+
+
 
     var disp = <h1>{props.text}</h1>;
-    var inp = <input type={props.type} onInput={getInput} id="file-path" ></input>;
-    if (props.text == "Record") {
-        disp = (
-            <div>
-            <h1>Record</h1>
-            <audio src={audioURL} controls />
-            <button onClick={startRecording} disabled={isRecording}>
-                start recording
-            </button>
-            <button onClick={stopRecording} disabled={!isRecording}>
-                stop recording
-            </button></div>)
-        inp = "";
-    }
-
-
+    
     return (
         <div>
             <div style={OVERLAY_STYLES} />
             <div style={MODAL_STYLES}>
-                <div class="modal-body">
-                    {disp}
+            <div class="modal-body">
+            {disp}
                 </div>
                 <div>
-                    {inp}
+                <input type={props.type} onInput={getInput} id="file-path" class="form-control" placeholder="Name" ></input>
+                Photo: 
+                <input type="file" id="file-path-img" onChange={imgGet} ></input>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" onClick={addContact}>Add</button>
+                <div><button type="button" class = "btn btn-secondary" onClick={props.x}>cancel</button></div>                
+                <button type="button" class="btn btn-primary" onClick={addContact}>Add</button>
+                    
                 </div>
             </div>
         </div>

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import MyMessege from './MyMessege';
 import ChatHistory from './ChatHistory';
 import useRecorder from '../CurrentChat/useRecorder';
+import HisMessege from './HisMessege';
 
 
 
@@ -9,7 +10,8 @@ function InputMessage(props) {
 
     var val = 0;
     var time = (new Date).toLocaleTimeString();
-    const [messagesA, setA] = useState(new Map())
+    const [messagesA, setA] = useState(new Map().set("Aaron", [<div><MyMessege message="hi" time="12:01:16" /></div>,<div><HisMessege message={<img src="/wa.jpg" ></img>} time="12:01:20" /></div>,<div><MyMessege message={<video autoPlay id="vid"><source src="/WIN_20220424_18_27_52_Pro.mp4" type="video/mp4"></source></video>} time="12:02:16" /></div>,<div><HisMessege message={<audio id="rec" src="/be1ee15a-e6f4-4d30-9f3d-08c3acb6d425.weba" controls />} time="12:03:20" /></div>,<div><MyMessege message="by" time="12:05:16" /></div>]))
+    
 
     function setting() {
         if (val != 0) {
@@ -38,12 +40,19 @@ function InputMessage(props) {
             props.getLast(val, time);
         }
     }
-    function getInputImg() {
-        val = document.querySelector('#file-path-img').value;
+    
+    const imgGet = (e) => {
+        e.preventDefault();
+        val = URL.createObjectURL(e.target.files[0])
     }
-    function getInputVid() {
-        val = document.querySelector('#file-path-vid').value;
+
+    const vidGet = (e) => {
+        e.preventDefault();
+        console.log (e)
+        val = URL.createObjectURL(e.target.files[0])
     }
+
+
     function getInputTxt() {
         val = document.querySelector('#myInput').value;
     }
@@ -89,7 +98,7 @@ function InputMessage(props) {
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                 </div>
                                 <div class="modal-body">
-                                    <input type="file" onInput={getInputImg} id="file-path-img" ></input>;
+                                    <input type="file" id="file-path-img" onChange={imgGet} ></input>;
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-primary" data-dismiss="modal" onClick={closeP}>send</button>
@@ -105,7 +114,7 @@ function InputMessage(props) {
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                 </div>
                                 <div class="modal-body">
-                                    <input type="file" onInput={getInputVid} id="file-path-vid" ></input>;
+                                    <input type="file" onChange={vidGet} id="file-path-vid" ></input>;
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-primary" data-dismiss="modal" onClick={closeV}>send</button>

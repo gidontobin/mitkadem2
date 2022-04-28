@@ -1,7 +1,10 @@
 import { useRef } from "react";
+import users from "./Users";
+import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
 
 function Login(props) {
 
+    let navigate = useNavigate();
     const usernameBox = useRef(null);
     const passwordBox = useRef(null);
 
@@ -27,7 +30,9 @@ function Login(props) {
             usrname.setCustomValidity('')
         }
 
-        // check if username exists
+        /*
+        old version:
+        // check if username exists in the system
         let isExists = 0
         let passwordFlag = 0
         props.usersList.map((user) => {
@@ -35,6 +40,30 @@ function Login(props) {
                 isExists = 1
                 if (user.password == password.value)
                     passwordFlag = 1
+            }
+        })
+        if (!isExists) {
+            usrname.setCustomValidity("There's no such username")
+            console.log('not exists')
+            btn.click()
+            return;
+        }
+        else {
+            usrname.setCustomValidity('')
+        }
+        */
+
+        // check if username exists in the system
+        let currentUser
+        let isExists = 0
+        let passwordFlag = 0
+        users.map((user) => {
+            if (user.id == usrname.value) {
+                isExists = 1
+                if (user.password == password.value){
+                    passwordFlag = 1
+                    currentUser = user
+                }
             }
         })
         if (!isExists) {
@@ -70,8 +99,13 @@ function Login(props) {
         }
 
         console.log('Passed all tests!')
-        var path = '/Chat/' + usrname.value;
-        window.location.href = path;
+        //var path = '/Chat/' + usrname.value;
+        //window.location.href = "/Chat";
+        navigate("/chat?username="+usrname.value+"?"+currentUser.img);
+
+        //let index = users.indexOf(currentUser)
+        //users[index].isOnline = true
+        //navigate("/chat?username="+usrname.value+"?"+users[index].get("img"));
     }
 
     return (
