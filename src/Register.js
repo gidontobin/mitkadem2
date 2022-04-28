@@ -144,7 +144,7 @@ function Register(props) {
 
 
     return (
-        <div class="p-3 mb-2 bg-success text-black">
+        <div class="p-3 mb-2 text-black">
             <span className="d-flex justify-content-center">
                 <div className="row g-2 col-6 border  border-3 bg-light mt-5 mb-2 rounded">
                     <form>
