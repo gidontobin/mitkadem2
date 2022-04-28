@@ -105,6 +105,7 @@ function Register(props) {
         // add user to users list
         let user = {id: usrname.value, password: password1.value}
         props.usersList.push(user)
+        //props.usersList.push({id: usrname.value, password: password1.value})
         let index = props.usersList.indexOf(user)
 
         // check adding
@@ -118,13 +119,13 @@ function Register(props) {
 
         //props.paths.push(p)
         let index1 = props.paths.indexOf(p)
-        console.log("path in itemslist is: " + p)
+        console.log("path in itemslist is: " + props.paths[index1])
         //setTimeout(checkValidity, 300);
         //sleep(10000);
         //for(var i=0; i < 10000000000 ; i++);
         //console.log('fffffffffffff!')
 
-        window.location.href = p
+        //window.location.href = p
     }
 
 
